@@ -1,22 +1,14 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
+import AppLayout from '../components/appLayout'
 import Banner from '../components/Banner'
-import Header from '../components/Header'
+import Jobs from '../components/Jobs'
 
 const Home: NextPage = () => {
-
   return (
-    <div className="">
-      <Head>
-        <title>Medium Clone</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header />
-      <Banner />
-
-    </div>
+      <AppLayout>
+        <Banner />
+        <Jobs />
+      </AppLayout>
   )
 }
-
 export default Home
-

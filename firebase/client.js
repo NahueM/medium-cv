@@ -13,6 +13,24 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig)
 }
 
+const db = firebase.firestore()
+
+export const fetchJobs = () => {
+  return db.collection('jobs')
+    .get()
+    .then(snapshot => {
+      return snapshot.docs.map(doc => {
+        const data = doc.data()
+        const id = doc.id
+
+        return {
+          id,
+          ...data
+        }
+      })
+    })
+}
+
 const mapUserFromFirebaseAuth = (user) => {
   const { displayName, photoURL } = user
   return {
