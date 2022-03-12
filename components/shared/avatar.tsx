@@ -1,15 +1,21 @@
+import { getInitials } from '../../utils/utils'
+interface Props {
+  alt: string,
+  src: string,
+  width?: number,
+}
 
-function Avatar ({ alt, src }) {
+function Avatar ({ alt, src, width = 12 }: Props) {
   return (
-   <div className="flex-col justify-items-center">
-      <img className="w-12 h-12 mx-auto transition duration-300 delay-150 hover:scale-125
-        drop-shadow-md rounded-full cursor-pointer"
+    <div className={'flex flex-row justify-items-center w-12 mr-12 items-center'}>
+      <img className="mx-auto w-full mr-2 object-cover transition duration-300 delay-150 hover:scale-125 drop-shadow-md rounded-full cursor-pointer"
         src={src}
         alt={alt}
         title={alt}
       />
-      <p className=" font-medium text-sm mt-2 sm:text-sm  " >{alt}</p>
-   </div>
+      {!!alt.length && <p className="font-medium text-sm mt-2 text-center sm:hidden">{getInitials(alt)}</p>}
+      <p className="hidden sm:inline-flex font-medium mt-2 text-sm text-center">{alt}</p>
+    </div>
   )
 }
 

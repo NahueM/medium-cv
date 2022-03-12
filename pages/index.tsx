@@ -5,7 +5,7 @@ import Jobs from '../components/Jobs'
 
 const Home: NextPage = () => {
   return (
-      <AppLayout>
+      <AppLayout showAvatar>
         <Banner />
         <Jobs />
       </AppLayout>

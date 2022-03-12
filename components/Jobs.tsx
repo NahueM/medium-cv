@@ -3,14 +3,29 @@ import { fetchJobs } from '../firebase/client'
 import ThumbnailCard from './shared/ThumbnailCard'
 import { Briefcase } from 'react-feather'
 import LoadingCard from './shared/LoadingCard'
+import Link from 'next/link'
+
+interface Job {
+  companyDescription: string,
+  duration: {
+    years: number,
+    months: number
+  },
+  id: string,
+  jobDescription: string,
+  rol: string,
+  startDate: {seconds: number, nanoseconds: number},
+  title: string
+}
 
 function Jobs () {
-  const [jobs, setJobs] = useState([])
+  const [jobs, setJobs] = useState<Job[]>([])
 
   useEffect(() => {
-    fetchJobs()
-      .then(jobs => setJobs(
-        jobs.sort((a: object, b: object) => a.startDate.seconds - b.startDate.seconds).reverse()))
+    (fetchJobs() as Promise<Job[]>).then((response) => {
+      const orderedJobs: Job[] = [...response.sort((a, b) => a.startDate.seconds < b.startDate.seconds ? -1 : 1).reverse()]
+      setJobs(orderedJobs)
+    })
   }, [])
 
   return (
@@ -19,12 +34,14 @@ function Jobs () {
       <Briefcase className='m-5'/>
       <h1 className='font-medium text-lg'>Jobs</h1>
     </div>
-        {jobs.length > 0
-          ? <div className='flex-col sm:grid grid-cols-2 lg:grid-cols-3 '>
-              {jobs.map(job => <ThumbnailCard key={job.id} id={job.id} rol={job.rol} startDate={job.startDate} duration={job.duration}/>)}
-            </div>
-          : <LoadingCard />
-        }
+    {jobs.length > 0
+      ? <Link href="/jobDetail" >
+          <div className='flex-col sm:grid grid-cols-2 lg:grid-cols-3'>
+            {jobs.map(job => <ThumbnailCard key={job.id} id={job.id} rol={job.rol} startDate={job.startDate} duration={job.duration}/>)}
+          </div>
+        </Link>
+      : <LoadingCard />
+    }
     </div>
   )
 }

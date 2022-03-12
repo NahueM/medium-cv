@@ -5,7 +5,7 @@ module.exports = {
   ],
   theme: {
     screens: {
-      xs: '380px',
+      xs: '470px',
       // => @media (min-width: 380px) { ... }
 
       sm: '640px',
@@ -32,7 +32,7 @@ module.exports = {
       'light-blue': '#C4E2FF',
       black: '#000',
       white: '#fff',
-      grey: '#9A9A9A'
+      grey: '#8D8D8D'
     }
   },
   plugins: []

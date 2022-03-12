@@ -1,17 +1,21 @@
+import { ReactChild } from 'react'
 import Head from 'next/head'
 import Header from '../Header'
 
-function AppLayout ({ children }) {
+type Props = {
+  children: ReactChild[] | ReactChild
+  showAvatar?: boolean
+}
+
+function AppLayout ({ children, showAvatar = false }: Props) {
   return (
     <div>
         <Head>
             <title>Medium Clone</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Header />
-        <div>
-            {children}
-        </div>
+        <Header showAvatar={showAvatar}/>
+        {children}
     </div>
   )
 }
