@@ -9,7 +9,7 @@ type Props = {
 
 function AppLayout ({ children, showAvatar = false }: Props) {
   return (
-    <div>
+    <div className='h-full'>
         <Head>
             <title>Medium Clone</title>
             <link rel="icon" href="/favicon.ico" />

@@ -2,7 +2,7 @@
 function Banner () {
   return (
         <div className='bg-light-blue border-b border-black pt-10'>
-            <div className="hidden md:inline-flex text-lg mt-10 ml-5 items-center space-x-5 text-white font-bold lg:text-xl">
+            <div className="hidden md:flex text-xl max-w-7xl mt-10 p-5 mx-auto items-center space-x-5 text-white font-bold ">
                 <h3>Jobs</h3>
                 <h3>Skills</h3>
                 <h3>About me</h3>

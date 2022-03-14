@@ -30,18 +30,18 @@ function Jobs () {
 
   return (
     <div className='max-w-7xl mx-auto'>
-    <div className='flex items-center '>
-      <Briefcase className='m-5'/>
-      <h1 className='font-medium text-lg'>Jobs</h1>
-    </div>
-    {jobs.length > 0
-      ? <Link href="/jobDetail" >
-          <div className='flex-col sm:grid grid-cols-2 lg:grid-cols-3'>
-            {jobs.map(job => <ThumbnailCard key={job.id} id={job.id} rol={job.rol} startDate={job.startDate} duration={job.duration}/>)}
-          </div>
-        </Link>
-      : <LoadingCard />
-    }
+      <div className='flex items-center '>
+        <Briefcase className='m-5'/>
+        <h1 className='font-medium text-lg'>Jobs</h1>
+      </div>
+      {jobs.length > 0
+        ? <Link href="/jobDetail" >
+            <div className='flex-col sm:grid grid-cols-2 lg:grid-cols-3'>
+              {jobs.map(job => <ThumbnailCard key={job.id} id={job.id} rol={job.rol} startDate={job.startDate} duration={job.duration}/>)}
+            </div>
+          </Link>
+        : <LoadingCard />
+      }
     </div>
   )
 }

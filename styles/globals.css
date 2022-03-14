@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+	height: 100vh;
+	padding: 0;
+  }
 
 .loader {
 	border-top-color: #3498db;
