@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { fetchJobs } from '../firebase/client'
 import ThumbnailCard from './shared/ThumbnailCard'
 import { Briefcase } from 'react-feather'
-import LoadingCard from './shared/LoadingCard'
+import Loading from './shared/Loading'
 import Link from 'next/link'
+import { UseJobsContext } from '../hooks/useJobsContext'
+import { JobActions } from '../constants/actions'
 
 interface Job {
   companyDescription: string,
@@ -19,14 +21,25 @@ interface Job {
 }
 
 function Jobs () {
-  const [jobs, setJobs] = useState<Job[]>([])
+  const [state, dispatch] = UseJobsContext()
+  const { data: jobs } = state.jobs
 
   useEffect(() => {
-    (fetchJobs() as Promise<Job[]>).then((response) => {
-      const orderedJobs: Job[] = [...response.sort((a, b) => a.startDate.seconds < b.startDate.seconds ? -1 : 1).reverse()]
-      setJobs(orderedJobs)
-    })
+    if (!jobs?.length) {
+      (
+      fetchJobs() as Promise<Job[]>).then((response) => {
+        dispatch({ type: JobActions.JOBS_REQUEST_START })
+        const orderedJobs: Job[] = [...response.sort((a, b) => a.startDate.seconds < b.startDate.seconds ? -1 : 1).reverse()]
+        console.log('entre')
+        dispatch({ type: JobActions.JOBS_REQUEST_SUCCESS, payload: orderedJobs })
+      })
+    }
   }, [])
+
+  const handleJobClick = (id: string) => {
+    const jobSelected = jobs?.find(job => job.id === id)
+    dispatch({ type: JobActions.SET_JOB_SELECTED, payload: jobSelected })
+  }
 
   return (
     <div className='max-w-7xl mx-auto'>
@@ -34,13 +47,22 @@ function Jobs () {
         <Briefcase className='m-5'/>
         <h1 className='font-medium text-lg'>Jobs</h1>
       </div>
-      {jobs.length > 0
+      {jobs?.length
         ? <Link href="/jobDetail" >
-            <div className='flex-col sm:grid grid-cols-2 lg:grid-cols-3'>
-              {jobs.map(job => <ThumbnailCard key={job.id} id={job.id} rol={job.rol} startDate={job.startDate} duration={job.duration}/>)}
+            <div className='flex-col sm:grid grid-cols-2 lg:grid-cols-3' >
+              {jobs.map((job: Job) =>
+                <ThumbnailCard
+                  key={job.id}
+                  id={job.id}
+                  rol={job.rol}
+                  startDate={job.startDate}
+                  duration={job.duration}
+                  onJobClick={handleJobClick}
+                />
+              )}
             </div>
           </Link>
-        : <LoadingCard />
+        : <Loading />
       }
     </div>
   )

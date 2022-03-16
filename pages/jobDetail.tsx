@@ -1,9 +1,14 @@
 import type { NextPage } from 'next'
+import { useEffect } from 'react'
 import AppLayout from '../components/appLayout'
 import SideBar from '../components/shared/SideBar'
 import PhraseCard from '../components/shared/PhraseCard'
+import { UseJobsContext } from '../hooks/useJobsContext'
 
 const JobDetail: NextPage = () => {
+  const [state] = UseJobsContext()
+  const { jobSelected } = state
+
   return (
       <AppLayout>
             <div className='flex h-full'>
@@ -34,4 +39,5 @@ const JobDetail: NextPage = () => {
       </AppLayout>
   )
 }
+
 export default JobDetail

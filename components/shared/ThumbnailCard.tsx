@@ -6,14 +6,15 @@ interface ThumbnailCardProps{
     years: number,
     months: number
   }
-  id:string
+  id:string,
+  onJobClick: Function
 }
 
-function ThumbnailCard ({ rol, startDate, duration, id }: ThumbnailCardProps) {
+function ThumbnailCard ({ rol, startDate, duration, id, onJobClick }: ThumbnailCardProps) {
   const { years, months } = duration
   const jobStartDate = startDate.toDate()
   return (
-    <div className='flex text-left h-[120px] justify-around justify-self-start items-center transition duration-300 delay-100 hover:scale-110'>
+    <div onClick={() => onJobClick(id)} className='flex text-left h-[120px] justify-around justify-self-start items-center transition duration-300 delay-100 hover:scale-110'>
       <div className='flex w-44 flex-wrap justify-center'>
         <img className="p-1 max-w-12 " src={`/${id}.jpg`} />
       </div>
