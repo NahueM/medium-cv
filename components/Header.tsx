@@ -10,7 +10,7 @@ interface Props {
 function Header ({ showAvatar }: Props) {
   return (
         <header className="bg-light-blue border-b border-black fixed top-0 left-0 right-0 inline-block z-50 ">
-            <div className="flex justify-between p-5 max-w-7xl mx-auto">
+            <div className="flex justify-between p-5 max-w-7xl mx-auto md:mr-2">
                 <div className="flex items-center space-x-5">
                     <Link href="/">
                         <img className="w-32 sm:w-44 object-contain cursor-pointer" src="/LogoNahuel.png" />
@@ -40,13 +40,13 @@ function Header ({ showAvatar }: Props) {
                         </ul>
                     </div>
                 </div>
-                <div className="hidden xs:flex z-1 items-center space-x-5 mr-10 sm:mr-5 ">
+                <div className="hidden xs:flex z-1 items-center space-x-5 mr-10 md:mr-12 ">
                     <div className="inline-flex items-center space-x-5 md:hidden">
-                        <h3>Jobs</h3>
-                        <h3>Skills</h3>
-                        <h3>About me</h3>
+                        <h3><FormattedMessage id='jobs' /></h3>
+                        <h3><FormattedMessage id='skills' /></h3>
+                        <h3><FormattedMessage id='aboutMe' /></h3>
                     </div>
-                    <p className='hidden  md:flex text-right text-lg font-semibold lg:text-lg'>{'"Always working to be the Senior example I needed when I was a Junior"'}</p>
+                    <p className='hidden md:flex text-right text-lg font-semibold lg:text-lg'><FormattedMessage id='phrase'/></p>
                     {showAvatar && <Avatar src={'/avatarNahuel.jpg'} alt={'Nahuel Maya'} width={12}/>}
                 </div>
             </div>

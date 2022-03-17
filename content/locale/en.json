@@ -1,5 +1,17 @@
 {
     "jobs": "Jobs",
     "skills": "Skills",
-    "aboutMe": "About Me"
+    "aboutMe": "About Me",
+    "rol": "Sr. Front-end developer",
+    "rolExtended": "Sr. Front-end developer with 7 years experience",
+    "startDate": "Start date:",
+    "endDate": "End date:",
+    "endDateActual": "End date: Actual",
+    "phrase": "Always working to be the Senior example I needed when I was a Junior",
+    "openbank": "Refactoring domain",
+    "openbankCompanydescription": "Openbank is an online bank, headquartered in Madrid, Spain. Since its foundation in 1995, it has been a subsidiary of Grupo Santander. According to the Spanish Banking Association, by the end of 2016 nearly 1,350,000 accounts had been registered with the bank.",
+    "openbankEsJobDescription": "As title says, my principal task is refactoring the old class component into new functional, improving the logic, implementing the latest React's features as hooks, always thinking in reusability, the app is growing to others countries so we have to keep in mind the component should be reusable keeping business logic separate from app logic, in other hand I have to implement new features, and make codes reviews for externals developers ",
+    "arz": "Architecture from Scratch",
+    "arzCompanyDescription": "Arzion is a software factory dedicated to providing effective solutions to companies. With collaborators around the world. Are part of Polo IT La Plata which gathers companies of software development and business management. Since 2005 they have worked on hundreds of projects in the United States, Europe and Australia.",
+    "arzJobDescription": "On my way trough this company, I was involve in architecture design of a new project, I was in charge of setting up webpack, was the first time I went so deep on webpack, this project had to be able to be executed by adding an script on your html file, so with that script on your file you could access to all project features"
 }

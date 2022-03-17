@@ -1,5 +1,10 @@
 {
     "jobs": "Trabajos",
     "skills": "Habilidades",
-    "aboutMe": "Sobre Mi"
+    "aboutMe": "Sobre Mi",
+    "rol": "Desarrollador Front-end Sr",
+    "rolExtended": "Desarrollador Sr. con 7 años de experiencia",
+    "startDate": "Fecha Inicio:",
+    "endDate": "Fecha Fin:",
+    "endDateActual": "Fecha Fin: Actual"
 }

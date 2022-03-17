@@ -6,7 +6,7 @@ import Loading from './shared/Loading'
 import Link from 'next/link'
 import { UseJobsContext } from '../hooks/useJobsContext'
 import { JobActions } from '../constants/actions'
-
+import { FormattedMessage } from 'react-intl'
 interface Job {
   companyDescription: string,
   duration: {
@@ -45,7 +45,7 @@ function Jobs () {
     <div className='max-w-7xl mx-auto'>
       <div className='flex items-center '>
         <Briefcase className='m-5'/>
-        <h1 className='font-medium text-lg'>Jobs</h1>
+        <h1 className='font-medium text-lg'><FormattedMessage id='jobs'/></h1>
       </div>
       {jobs?.length
         ? <Link href="/jobDetail" >

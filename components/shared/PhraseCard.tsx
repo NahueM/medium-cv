@@ -1,4 +1,5 @@
 import Avatar from './avatar'
+import { FormattedMessage } from 'react-intl'
 
 function PhraseCard () {
   return (
@@ -6,7 +7,7 @@ function PhraseCard () {
         <div className='w-12 sm:mx-2 mr-5 md:mx-5'>
             <Avatar alt={''} src={'/avatarNahuel.jpg'} width={14}/>
         </div>
-        <p className='inline-block text-sm font-semibold lg:textlg'>{'"Always working to be the Senior example I needed when I was a Junior"'}</p>
+        <p className='inline-block text-sm font-semibold lg:textlg'><FormattedMessage id='phrase'/></p>
     </div>
   )
 }

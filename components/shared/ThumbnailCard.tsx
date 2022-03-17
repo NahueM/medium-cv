@@ -1,4 +1,6 @@
 import { monthsShort } from '../../utils/utils'
+import { FormattedMessage } from 'react-intl'
+
 interface ThumbnailCardProps{
   rol: string,
   startDate: any,
@@ -19,11 +21,11 @@ function ThumbnailCard ({ rol, startDate, duration, id, onJobClick }: ThumbnailC
         <img className="p-1 max-w-12 " src={`/${id}.jpg`} />
       </div>
       <div className='max-w-[50%] border-l border-grey pl-5 text-sm font-semibold justify-center sm:place-content-evenly font-bold'>
-        <div className="text-grey">Start date: {`${monthsShort[jobStartDate.getMonth()]} - ${jobStartDate.getFullYear()}`}</div>
+        <div className="text-grey"><FormattedMessage id='startDate'/> {`${monthsShort[jobStartDate.getMonth()]} - ${jobStartDate.getFullYear()}`}</div>
         {
           months > 0
-            ? <div className="text-grey">End date: {`${monthsShort[jobStartDate.getMonth() + months]} - ${jobStartDate.getFullYear() + years}`}</div>
-            : <div className="text-grey">End date: Actual</div>
+            ? <div className="text-grey"><FormattedMessage id='endDate'/> {`${monthsShort[jobStartDate.getMonth() + months]} - ${jobStartDate.getFullYear() + years}`}</div>
+            : <div className="text-grey"><FormattedMessage id='endDateActual'/></div>
 
         }
         <div>{rol}</div>

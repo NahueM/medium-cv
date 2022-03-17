@@ -7,7 +7,7 @@ interface Props {
 
 function Avatar ({ alt, src, width = 12 }: Props) {
   return (
-    <div className={'flex flex-row justify-items-center w-12 mr-12 items-center '}>
+    <div className={'flex flex-row justify-items-center w-12 mr-12 items-center'}>
       <img className="mx-auto w-full mr-2 object-cover transition duration-300 delay-150 hover:scale-125 drop-shadow-md rounded-full cursor-pointer border-2 border-light-blue"
         src={src}
         alt={alt}
