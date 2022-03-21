@@ -23,7 +23,7 @@ interface State {
         loading: boolean
         error: boolean
     },
-    jobSelected: Job | null,
+    jobSelected: any | null,
     lang: string
 }
 
