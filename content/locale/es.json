@@ -6,5 +6,21 @@
     "rolExtended": "Desarrollador Sr. con 7 años de experiencia",
     "startDate": "Fecha Inicio:",
     "endDate": "Fecha Fin:",
-    "endDateActual": "Fecha Fin: Actual"
+    "endDateActual": "Fecha Fin: Actual",
+    "phrase": "",
+    "openbank": "",
+    "openbankCompanydescription": "",
+    "openbankEsJobDescription": "",
+    "arz": "",
+    "arzCompanyDescription": "",
+    "arzJobDescription": "",
+    "santander": "",
+    "santanderCompanyDescription": "",
+    "santanderJobDescription": "",
+    "arzion": "",
+    "arzionJobDescription": "",
+    "arzionCompanyDescription": "",
+    "credil": "",
+    "credilCompanyDescription": "",
+    "credilJobDescription": ""
 }

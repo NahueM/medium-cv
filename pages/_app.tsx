@@ -10,7 +10,7 @@ function MyApp ({ Component, pageProps }: AppProps) {
   const { locale } = useRouter()
   const [shortLocale] = locale ? locale.split('-') : ['en']
 
-  const langs = {
+  const langs: any = {
     es: intlESmessages,
     en: intlENmessages
   }
